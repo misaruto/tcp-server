@@ -1,0 +1,270 @@
+[
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "socket",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "socket",
+        "description": "socket",
+        "detail": "socket",
+        "documentation": {}
+    },
+    {
+        "label": "socket",
+        "importPath": "socket",
+        "description": "socket",
+        "isExtraImport": true,
+        "detail": "socket",
+        "documentation": {}
+    },
+    {
+        "label": "Thread",
+        "importPath": "threading",
+        "description": "threading",
+        "isExtraImport": true,
+        "detail": "threading",
+        "documentation": {}
+    },
+    {
+        "label": "CustomXmlParser",
+        "importPath": "src.utils.xml_parser",
+        "description": "src.utils.xml_parser",
+        "isExtraImport": true,
+        "detail": "src.utils.xml_parser",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "click",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "click",
+        "description": "click",
+        "detail": "click",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonlogger",
+        "importPath": "pythonjsonlogger",
+        "description": "pythonjsonlogger",
+        "isExtraImport": true,
+        "detail": "pythonjsonlogger",
+        "documentation": {}
+    },
+    {
+        "label": "ClientHandler",
+        "importPath": "src.handlers.client_handler",
+        "description": "src.handlers.client_handler",
+        "isExtraImport": true,
+        "detail": "src.handlers.client_handler",
+        "documentation": {}
+    },
+    {
+        "label": "Server",
+        "importPath": "src.infra.servers.server",
+        "description": "src.infra.servers.server",
+        "isExtraImport": true,
+        "detail": "src.infra.servers.server",
+        "documentation": {}
+    },
+    {
+        "label": "Server",
+        "importPath": "src.infra.servers.server",
+        "description": "src.infra.servers.server",
+        "isExtraImport": true,
+        "detail": "src.infra.servers.server",
+        "documentation": {}
+    },
+    {
+        "label": "xml.etree.ElementTree",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "xml.etree.ElementTree",
+        "description": "xml.etree.ElementTree",
+        "detail": "xml.etree.ElementTree",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "CustomJsonFormatter",
+        "importPath": "src.infra.logs.custom_json_formatter",
+        "description": "src.infra.logs.custom_json_formatter",
+        "isExtraImport": true,
+        "detail": "src.infra.logs.custom_json_formatter",
+        "documentation": {}
+    },
+    {
+        "label": "TcpServer",
+        "importPath": "src.infra.servers.tcp_server",
+        "description": "src.infra.servers.tcp_server",
+        "isExtraImport": true,
+        "detail": "src.infra.servers.tcp_server",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "ClientHandler",
+        "kind": 6,
+        "importPath": "src.handlers.client_handler",
+        "description": "src.handlers.client_handler",
+        "peekOfCode": "class ClientHandler(Thread):\n  def __init__(self, client:socket,addr, buffer_size=1024):\n    super().__init__()\n    self.client = client\n    self.addr = addr\n    self.buffer_size = buffer_size\n    self.recv_data = b''\n    self.proccesed_data:CustomXmlParser = None\n    self.client.settimeout(10)\n  def receive_data(self):",
+        "detail": "src.handlers.client_handler",
+        "documentation": {}
+    },
+    {
+        "label": "CustomJsonFormatter",
+        "kind": 6,
+        "importPath": "src.infra.logs.custom_json_formatter",
+        "description": "src.infra.logs.custom_json_formatter",
+        "peekOfCode": "class CustomJsonFormatter(jsonlogger.JsonFormatter):\n    def add_fields(self, log_record, record, message_dict, ensure_ascii=False):\n        if isinstance(record.msg, str):\n            record.msg = click.unstyle(record.msg)\n        if isinstance(record.message, str):\n            record.message = click.unstyle(record.message)\n        super().add_fields(log_record, record, message_dict)\n        log_record[\"timestamp\"] = datetime.now().strftime(\"%Y-%m-%dT%H:%M:%S.%fZ\")\n        if request:\n            log_record[\"session_id\"] = request.headers.get(\"session_id\")",
+        "detail": "src.infra.logs.custom_json_formatter",
+        "documentation": {}
+    },
+    {
+        "label": "Server",
+        "kind": 6,
+        "importPath": "src.infra.servers.server",
+        "description": "src.infra.servers.server",
+        "peekOfCode": "class Server:\n  def __init__(\n    self,\n    bind_ip:str,\n    bind_port:int,\n    socket_type=socket.SOCK_STREAM,\n    backlog=5,\n    buffer_size=1024,\n  ):\n    self.bind_ip = bind_ip",
+        "detail": "src.infra.servers.server",
+        "documentation": {}
+    },
+    {
+        "label": "TcpServer",
+        "kind": 6,
+        "importPath": "src.infra.servers.tcp_server",
+        "description": "src.infra.servers.tcp_server",
+        "peekOfCode": "class TcpServer(Server):\n  def __init__(\n    self,\n    bind_ip:str,\n    bind_port:int,\n    backlog=5,\n    buffer_size=1024,\n  ):\n    logging.info(\"Starting TCP server...\")\n    super().__init__(bind_ip,bind_port,socket.SOCK_STREAM,backlog,buffer_size)",
+        "detail": "src.infra.servers.tcp_server",
+        "documentation": {}
+    },
+    {
+        "label": "UdpServer",
+        "kind": 6,
+        "importPath": "src.infra.servers.udp_server",
+        "description": "src.infra.servers.udp_server",
+        "peekOfCode": "class UdpServer(Server):\n  def __init__(\n    self,\n    bind_ip:str,\n    bind_port:int,\n    backlog=5,\n    buffer_size=1024,\n  ):\n    logging.info(\"Starting UDP server...\")\n    super().__init__(bind_ip,bind_port,socket.AF_INET,backlog,buffer_size)",
+        "detail": "src.infra.servers.udp_server",
+        "documentation": {}
+    },
+    {
+        "label": "CustomXmlParser",
+        "kind": 6,
+        "importPath": "src.utils.xml_parser",
+        "description": "src.utils.xml_parser",
+        "peekOfCode": "class CustomXmlParser():\n  def __init__(self,xml_data:str) -> None:\n    self.elements = ET.fromstring(xml_data)\n  def get_elements(self) -> ET.Element:\n    return self.elements\n  def get_element(self,element_name:str) -> ET.Element:\n    return self.elements.find(element_name)\n  def list_elements(self) -> list:\n    for element in self.elements:\n      print(f\"{element.tag}: {element.text}\")",
+        "detail": "src.utils.xml_parser",
+        "documentation": {}
+    },
+    {
+        "label": "APP_NAME",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "APP_NAME = \"tcp-server\"\nfile_dir = os.path.split(os.path.realpath(__file__))[0]\nlogger = logging.getLogger()\nlogger.setLevel(logging.INFO)\nlogHandler = logging.StreamHandler()\nformatter = CustomJsonFormatter(\"%(timestamp)s %(levelname)s %(message)s\", json_ensure_ascii=False)\nlogHandler.setFormatter(formatter)\nlogger.addHandler(logHandler)\nloggerFile = logging.FileHandler(f\"{file_dir}/{APP_NAME}.log\")\nloggerFile.setFormatter(formatter)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "file_dir",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "file_dir = os.path.split(os.path.realpath(__file__))[0]\nlogger = logging.getLogger()\nlogger.setLevel(logging.INFO)\nlogHandler = logging.StreamHandler()\nformatter = CustomJsonFormatter(\"%(timestamp)s %(levelname)s %(message)s\", json_ensure_ascii=False)\nlogHandler.setFormatter(formatter)\nlogger.addHandler(logHandler)\nloggerFile = logging.FileHandler(f\"{file_dir}/{APP_NAME}.log\")\nloggerFile.setFormatter(formatter)\nlogger.addHandler(loggerFile)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "logger = logging.getLogger()\nlogger.setLevel(logging.INFO)\nlogHandler = logging.StreamHandler()\nformatter = CustomJsonFormatter(\"%(timestamp)s %(levelname)s %(message)s\", json_ensure_ascii=False)\nlogHandler.setFormatter(formatter)\nlogger.addHandler(logHandler)\nloggerFile = logging.FileHandler(f\"{file_dir}/{APP_NAME}.log\")\nloggerFile.setFormatter(formatter)\nlogger.addHandler(loggerFile)\nlogger.info(\"Starting server...\")",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "logHandler",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "logHandler = logging.StreamHandler()\nformatter = CustomJsonFormatter(\"%(timestamp)s %(levelname)s %(message)s\", json_ensure_ascii=False)\nlogHandler.setFormatter(formatter)\nlogger.addHandler(logHandler)\nloggerFile = logging.FileHandler(f\"{file_dir}/{APP_NAME}.log\")\nloggerFile.setFormatter(formatter)\nlogger.addHandler(loggerFile)\nlogger.info(\"Starting server...\")\nserver = TcpServer(\"0.0.0.0\", 9999)\nserver.start()",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "formatter",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "formatter = CustomJsonFormatter(\"%(timestamp)s %(levelname)s %(message)s\", json_ensure_ascii=False)\nlogHandler.setFormatter(formatter)\nlogger.addHandler(logHandler)\nloggerFile = logging.FileHandler(f\"{file_dir}/{APP_NAME}.log\")\nloggerFile.setFormatter(formatter)\nlogger.addHandler(loggerFile)\nlogger.info(\"Starting server...\")\nserver = TcpServer(\"0.0.0.0\", 9999)\nserver.start()",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "loggerFile",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "loggerFile = logging.FileHandler(f\"{file_dir}/{APP_NAME}.log\")\nloggerFile.setFormatter(formatter)\nlogger.addHandler(loggerFile)\nlogger.info(\"Starting server...\")\nserver = TcpServer(\"0.0.0.0\", 9999)\nserver.start()",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "server",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "server = TcpServer(\"0.0.0.0\", 9999)\nserver.start()",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "def main():\n    host = '127.0.0.1'\n    port = PORT = int(sys.argv[1]) \n    client_socket = socket.socket(type=socket.SOCK_STREAM)\n    client_socket.connect((host, port))\n    xml_data = \"\"\"\n    <request>\n        <person>\n            <name>Alice</name>\n            <age>28</age>",
+        "detail": "test",
+        "documentation": {}
+    }
+]
